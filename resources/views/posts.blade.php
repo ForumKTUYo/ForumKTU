@@ -4,32 +4,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-8">
-            <h1>Temos</h1>
-            <form class="form-inline">
-                <div class="col-auto">
-                    <label class="sr-only" for="new_theme">Nauja tema</label>
-                    <input type="text" class="form-control mb-2" id="new_theme" placeholder="Nauja tema">
-                  </div>
-                <button type="submit" class="btn btn-primary mb-2">Kurti</button>
-              </form>
+            <h1>Tema 1</h1>
+            <h6><a href="/sukurti">Sukurti įrašą</a></h6>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <div class="row justify-content-between">
                         <div class="col-8">
-                            <a href="/tema1">Tema 1</a>
-                        </div>
-                        <div class="col-1">
-                            <button type="button" class="btn btn-success">Sekti</button>
+                            <a href="/tema1/irasas1">Įrašas 1</a>
                         </div>
                         <div class="col-2 ">
                             <div class="dropdown">
-                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   ---
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="#">Redaguoti</a>
                                   <a class="dropdown-item" href="#">Šalinti</a>
-                                  <a class="dropdown-item" href="#">Užrakinti</a>
                                 </div>
                               </div>
                         </div>

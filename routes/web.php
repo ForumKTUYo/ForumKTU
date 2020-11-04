@@ -13,14 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::get('/', 'PageController@index')->name('pages.index');
+
+Route::get('/sukurti', function(){
+    return view('create_view');
 });
 
-Auth::routes();
+Route::get('/admin', function(){
+    return view('edit_themes');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{tema}', function($tema){
+    return view('posts');
+});
 
-Auth::routes();
+Route::get('/profilis/{id}', function($id){
+    return view('profile');
+});
+Route::get('/{tema}/{irasas}', function($tema, $irasas){
+    return view('post');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
