@@ -10,7 +10,14 @@
                 <li class="list-group-item">
                     <div class="row justify-content-between">
                         <div class="col-8">
-                            <a href="/tema1/irasas1">Įrašas 1</a>
+                            <div class="row">
+                                <a href="/profilis/1">Įrašo kūrėjas</a>
+                            </div>
+                            <div class="row">
+                                <h5>
+                                    <a href="/tema1/irasas1">Įrašas 1</a>
+                                </h5>
+                            </div>
                         </div>
                         <div class="col-2 ">
                             <div class="dropdown">
@@ -18,7 +25,7 @@
                                   ---
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="#">Redaguoti</a>
+                                  <a class="dropdown-item" href="/redaguoti">Redaguoti</a>
                                   <a class="dropdown-item" href="#">Šalinti</a>
                                 </div>
                               </div>

@@ -21,6 +21,10 @@ Route::get('/sukurti', function(){
     return view('create_view');
 });
 
+Route::get('/redaguoti', function(){
+    return view('create_view');
+});
+
 Route::get('/admin', function(){
     return view('edit_themes');
 });
@@ -32,6 +36,7 @@ Route::get('/{tema}', function($tema){
 Route::get('/profilis/{id}', function($id){
     return view('profile');
 });
+
 Route::get('/{tema}/{irasas}', function($tema, $irasas){
     return view('post');
 });
