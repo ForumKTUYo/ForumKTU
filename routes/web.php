@@ -15,29 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'PageController@index')->name('pages.index');
-
-Route::get('/sukurti', function(){
-    return view('create_view');
-});
-
-Route::get('/redaguoti', function(){
-    return view('create_view');
-});
-
-Route::get('/admin', function(){
-    return view('edit_themes');
-});
-
-Route::get('/{tema}', function($tema){
-    return view('posts');
-});
-
-Route::get('/profilis/{id}', function($id){
-    return view('profile');
-});
-
-Route::get('/{tema}/{irasas}', function($tema, $irasas){
-    return view('post');
-});
-
+Route::get('/', 'ThemeController@index')->name('themes.index');
+Route::post('/', 'ThemeController@store')->name('themes.store');
+Route::get('/{id}', 'ThemeController@show')->name('themes.show');
+Route::delete('/theme/{id}', 'ThemeController@destroy')->name('themes.destroy');
+Route::get('/post/create', 'PostController@create')->name('posts.create');
+Route::post('/post/create', 'PostController@store')->name('posts.store');
+Route::get('/post/{id}', 'PostController@show')->name('posts.show');
+Route::delete('/post/{id}', 'PostController@destroy')->name('posts.destroy');
+Route::get('/profile/{id}', 'UserController@show')->name('users.show');
