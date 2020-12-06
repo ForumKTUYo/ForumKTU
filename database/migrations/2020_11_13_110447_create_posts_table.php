@@ -17,9 +17,15 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->integer('view_count');
-            $table->integer('comments_count');
             $table->text('content');
+
+            $table->integer('views');
+            $table->integer('monthly_views');
+            $table->integer('comments');
+            $table->integer('monthly_comments');
+
+            $table->foreignId('theme_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

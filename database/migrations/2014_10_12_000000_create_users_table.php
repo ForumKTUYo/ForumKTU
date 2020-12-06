@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('post_count');
+            $table->string('color')->default('black');
+            $table->string('role');
         });
     }
 

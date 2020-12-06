@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThemesTable extends Migration
+class CreateWarningUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,11 @@ class CreateThemesTable extends Migration
      */
     public function up()
     {
-        Schema::create('themes', function (Blueprint $table) {
+        Schema::create('warning_user', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-
-            $table->integer('views');
-            $table->integer('monthly_views');
-            $table->integer('posts');
-            $table->integer('monthly_posts');
-            
             $table->timestamps();
+            $table->bigInteger('sender_id')->unsigned();
+            $table->bigInteger('receiver_id')->unsigned();
         });
     }
 
@@ -34,6 +28,6 @@ class CreateThemesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('themes');
+        Schema::dropIfExists('warning_user');
     }
 }
