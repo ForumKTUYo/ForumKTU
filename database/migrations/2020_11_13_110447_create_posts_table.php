@@ -19,10 +19,10 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
 
-            $table->integer('views');
-            $table->integer('monthly_views');
-            $table->integer('comments');
-            $table->integer('monthly_comments');
+            $table->integer('views')->default(0);
+            $table->integer('monthly_views')->default(0);
+            $table->integer('comments_count')->default(0);
+            $table->integer('monthly_comments_count')->default(0);
 
             $table->foreignId('theme_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

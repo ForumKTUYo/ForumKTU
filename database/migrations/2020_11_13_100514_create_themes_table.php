@@ -18,10 +18,10 @@ class CreateThemesTable extends Migration
             $table->string('name');
             $table->text('description');
 
-            $table->integer('views');
-            $table->integer('monthly_views');
-            $table->integer('posts');
-            $table->integer('monthly_posts');
+            $table->integer('views')->default(0);
+            $table->integer('monthly_views')->default(0);
+            $table->integer('posts_count')->default(0);
+            $table->integer('monthly_posts_count')->default(0);
             
             $table->timestamps();
         });

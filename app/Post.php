@@ -8,11 +8,16 @@ class Post extends Model
 {
     // Each post belongs to an user
     public function user(){
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
     // Each post has many comments
     public function comments(){
-        $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment');
+    }
+
+    // Each post belongs to a theme
+    public function theme(){
+        return $this->belongsTo('App\Theme');
     }
 }

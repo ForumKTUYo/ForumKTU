@@ -17,6 +17,7 @@ class ThemeController extends Controller
     public function show($id){
         $theme = Theme::findOrFail($id);
         $posts = Post::where('theme_id', $id)->get();
+        // $posts = $theme->posts;
         $data = [
             'theme' => $theme,
             'posts' => $posts
@@ -26,9 +27,9 @@ class ThemeController extends Controller
 
     public function store(){    
         $theme = new Theme();
-        $theme->name = request('name'); 
-        $theme->post_count = 0;
-        $theme->view_count = 0;
+        $theme->name = request('name');
+        // Temporary 
+        $theme->description = '';
 
         $theme->save();
 

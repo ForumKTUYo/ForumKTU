@@ -13,7 +13,7 @@
                     <div class="row justify-content-between">
                         <div class="col-8">
                             <div class="row">
-                                <a href="{{ route('users.show', 1) }}">Įrašo kūrėjas</a>
+                                <a href="{{ route('users.show', 1) }}">{{ $post->user->name }}</a>
                             </div>
                             <div class="row">
                                 <h5>
@@ -21,9 +21,15 @@
                                 </h5>
                             </div>
                         </div>
-                        <div class="col-2 ">
-                            <a class="dropdown-item" href="{{ route('posts.create') }}">Redaguoti</a>
-                            <a class="dropdown-item" href="{{ route('posts.destroy', $post->id) }}">Šalinti</a>
+                        <div class="col-4">
+                            <a href="{{ route('posts.edit', $post->id) }}">
+                                <button type="button" class="btn btn-primary">Redaguoti</button>
+                            </a> 
+                            <form action="{{ route('posts.destroy', $post->id) }} " method="POST">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-default">Ištrinti</button>
+                            </form>
                         </div>
                     </div>
                 </li>

@@ -34,9 +34,6 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="#">Redaguoti</a>
-
-  
-
                                   <a class="dropdown-item" href="#">Užrakinti</a>
                                 </div>
                               </div>
@@ -44,7 +41,7 @@
                         <form action="{{ route('themes.destroy', $theme->id) }}" method="post">
                           @method('delete')
                           @csrf
-                          <input class="btn btn-default" type="submit" value="Delete" />
+                          <button class="btn btn-default" type="submit" >Ištrinti</button>
                           </form>
                     </div>
                 </li>
