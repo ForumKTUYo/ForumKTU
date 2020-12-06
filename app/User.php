@@ -37,8 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Shows that user has many posts
+    // User has many posts
     public function posts(){
         return $this->hasMany('App\Post');
+    }
+
+    // User has many comments
+    public function comments(){
+        return $this->hasMany('App\Comment');
     }
 }
