@@ -13,11 +13,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::insert([
+        User::create([
             'nickname' => 'user',
-            'name' => 'user',
-            'surname' => 'user',
-            'birthday' => '2020-01-01',
+            'name' => 'vardenis',
+            'surname' => 'pavardenis',
+            'birthday' => '2020-9-11',
             'email' => 'user@user',
             'password' => Hash::make('password'),
             'post_count' => 0,
