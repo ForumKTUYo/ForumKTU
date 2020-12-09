@@ -51,7 +51,8 @@ class ThemeController extends Controller
     }
 
     public function destroy($id){
-        $theme = Theme::findOrFail($id);
+        dd($id);
+        $theme = Theme::find($id);
         $theme->delete();
 
         return redirect('/');

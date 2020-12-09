@@ -12,12 +12,12 @@
                 @foreach ($comments as $comment)
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4" id="comment-parent">
                             <a href="{{ route('users.show', $post->user->id) }}">
                                 {{$comment->user->name}}
                             </a><br> 
                             Sukurta: {{$comment->created_at}}<br>
-                            <p>{{$comment->content}}</p>
+                            <p id="comment-content">{{$comment->content}}</p>
                         </div>
                     </div>
 
@@ -26,10 +26,11 @@
                           ---
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          {{-- <a class="dropdown-item" href="{{ route('comments.edit', $comment->id) }}">Redaguoti</a> --}}
+                          <a class="dropdown-item" href="{{ route('comments.edit', $comment->id) }}">Redaguoti</a>
                           <a class="dropdown-item" onclick="event.preventDefault();
                           document.getElementById('delete-form').submit();">Ištrinti</a>
                         </div>
+
                       </div>
                     <form id="delete-form" method="POST" action="{{ route('comments.destroy', $comment->id) }}">
                         @method('delete')
@@ -49,4 +50,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

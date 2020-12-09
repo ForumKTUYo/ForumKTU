@@ -28,6 +28,11 @@ class CommentController extends Controller
         return redirect()->route('posts.show', $id)->with('msg', 'Naujas komentaras sėkmingai sukurtas.');
     }
 
+    public function edit($id){
+        $comment = Comment::find($id);
+        return view('posts.edit', $comment);
+    }
+
     public function destroy($id){    
         $comment = Comment::find($id);
         $post = $comment->post;

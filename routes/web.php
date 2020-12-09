@@ -40,3 +40,5 @@ Route::get('/profile/{id}', 'UserController@show')->name('users.show');
 // COMMENTS
 Route::post('/comment/{id}', 'CommentController@store')->name('comments.store');
 Route::delete('/comment/{id}', 'CommentController@destroy')->name('comments.destroy');
+Route::get('/comment/{id}/edit', 'CommentController@edit')->name('comments.edit');
+Route::put('/comment/{id}', 'CommentController@update')->name('comments.update');
