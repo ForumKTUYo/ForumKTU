@@ -25,6 +25,20 @@ class ThemeController extends Controller
         return view('themes.show', $data);
     }
 
+    public function lock($id){
+        $theme = Theme::findOrFail($id);
+        $theme->locked = 1;
+        $theme->save();
+        return redirect('/');
+    }
+
+    public function unlock($id){
+        $theme = Theme::findOrFail($id);
+        $theme->locked = 0;
+        $theme->save();
+        return redirect('/');
+    }
+
     public function store(){    
         $theme = new Theme();
         $theme->name = request('name');
