@@ -21,14 +21,20 @@
                                 </h5>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <a href="{{ route('posts.edit', $post->id) }}">
-                                <button type="button" class="btn btn-primary">Redaguoti</button>
-                            </a> 
-                            <form action="{{ route('posts.destroy', $post->id) }} " method="POST">
+                        <div class="col-2">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  ---
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="{{ route('posts.edit', $post->id) }}">Redaguoti</a>
+                                  <a class="dropdown-item" onclick="event.preventDefault();
+                                  document.getElementById('delete-form').submit();">Ištrinti</a>
+                                </div>
+                              </div>
+                            <form id="delete-form" action="{{ route('posts.destroy', $post->id) }} " method="POST">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" class="btn btn-default">Ištrinti</button>
                             </form>
                         </div>
                     </div>

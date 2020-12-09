@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Comment;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class CommentController extends Controller
 {
@@ -17,13 +18,21 @@ class CommentController extends Controller
         $comment->user_id = Auth::id();
         $comment->post_id = $id;
 
+        $post->comments_count += 1;
+        $post->monthly_comments_count += 1;
+        if(Carbon::now()->day == 1){
+            $post->monthly_comments_count = 0;
+        }
+        $post->save();
         $post = $post->comments()->save($comment);
         return redirect()->route('posts.show', $id)->with('msg', 'Naujas komentaras sėkmingai sukurtas.');
     }
 
     public function destroy($id){    
         $comment = Comment::find($id);
-        dd($comment);
+        $post = $comment->post;
+        $post->comments_count -= 1;
+        $post->save();
         $comment->delete();
         return back();
     }

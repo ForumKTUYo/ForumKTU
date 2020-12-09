@@ -35,13 +35,14 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="#">Redaguoti</a>
                                   <a class="dropdown-item" href="#">Užrakinti</a>
+                                  <a class="dropdown-item" onclick="event.preventDefault();
+                                  document.getElementById('delete-form').submit();">Ištrinti</a>
                                 </div>
                               </div>
                         </div>
-                        <form action="{{ route('themes.destroy', $theme->id) }}" method="post">
+                        <form id="delete-form" action="{{ route('themes.destroy', $theme->id) }}" method="post">
                           @method('delete')
                           @csrf
-                          <button class="btn btn-default" type="submit" >Ištrinti</button>
                           </form>
                     </div>
                 </li>

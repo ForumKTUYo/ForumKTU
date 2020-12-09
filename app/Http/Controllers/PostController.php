@@ -5,6 +5,7 @@ use App\Post;
 use App\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -15,6 +16,15 @@ class PostController extends Controller
 
     public function show($id){
         $post = Post::find($id);
+
+        $post->views += 1;
+        $post->monthly_views += 1;
+        if(Carbon::now()->day == 1){
+            $post->monthly_views = 0;
+        }
+
+        $post->save();
+
         $comments = $post->comments;
         $data = [
             'post' => $post,
@@ -29,6 +39,11 @@ class PostController extends Controller
         $post->theme_id = request('selected_theme');
         $post->content = request('post_content');
         $post->user_id = Auth::id();
+
+        $theme = Theme::find($post->theme_id);
+        $theme->posts_count += 1;
+        $theme->monthly_posts_count += 1;
+        $theme->save();
 
         $post->save();
         return redirect()->route('themes.show', $post->theme_id)->with('msg', 'Naujas įrašas sėkmingai sukurtas.');
@@ -57,6 +72,8 @@ class PostController extends Controller
     public function destroy($id){
         $post = Post::find($id);
         $theme = $post->theme;
+        $theme->posts_count -= 1;
+        $theme->save();
         $post->delete();
 
         return back();
