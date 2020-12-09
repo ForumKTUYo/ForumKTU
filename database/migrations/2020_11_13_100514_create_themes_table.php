@@ -22,6 +22,8 @@ class CreateThemesTable extends Migration
             $table->integer('monthly_views')->default(0);
             $table->integer('posts_count')->default(0);
             $table->integer('monthly_posts_count')->default(0);
+
+            $table->boolean('locked')->default(0);
             
             $table->timestamps();
         });
