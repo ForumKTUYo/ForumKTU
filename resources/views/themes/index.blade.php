@@ -17,15 +17,15 @@
 
         @foreach ($themes as $theme)
 
-        <form id="delete-form" action="{{ route('themes.destroy', $theme->id) }}" method="post">
+        <form id="delete-form{{$theme->id}}" action="{{ route('themes.destroy', $theme->id) }}" method="post">
           @method('delete')
           @csrf
         </form>
-        <form id="lock-form" action="{{ route('themes.lock', $theme->id) }}" method="post">
+        <form id="lock-form{{$theme->id}}" action="{{ route('themes.lock', $theme->id) }}" method="post">
           @method('put')
           @csrf
         </form>
-        <form id="unlock-form" action="{{ route('themes.unlock', $theme->id) }}" method="post">
+        <form id="unlock-form{{$theme->id}}" action="{{ route('themes.unlock', $theme->id) }}" method="post">
           @method('put')
           @csrf
         </form>
@@ -52,13 +52,13 @@
                   <a class="dropdown-item" href="#">Redaguoti</a>
                   @if ($theme->locked == 1)
                   <a class="dropdown-item" onclick="event.preventDefault();
-                                    document.getElementById('unlock-form').submit();">Atrakinti {{$theme->id}}</a>
+                                    document.getElementById('unlock-form{{$theme->id}}').submit();">Atrakinti {{$theme->id}}</a>
                   @else
                   <a class="dropdown-item" onclick="event.preventDefault();
-                                    document.getElementById('lock-form').submit();">Užrakinti {{$theme->id}}</a>
+                                    document.getElementById('lock-form{{$theme->id}}').submit();">Užrakinti {{$theme->id}}</a>
                   @endif
                   <a class="dropdown-item" onclick="event.preventDefault();
-                                  document.getElementById('delete-form').submit();">Ištrinti {{$theme->id}}</a>
+                                  document.getElementById('delete-form{{$theme->id}}').submit();">Ištrinti {{$theme->id}}</a>
                 </div>
               </div>
             </div>

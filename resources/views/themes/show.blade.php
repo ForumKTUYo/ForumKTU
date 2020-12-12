@@ -29,10 +29,10 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="{{ route('posts.edit', $post->id) }}">Redaguoti</a>
                                   <a class="dropdown-item" onclick="event.preventDefault();
-                                  document.getElementById('delete-form').submit();">Ištrinti</a>
+                                  document.getElementById('delete-form{{$post->id}}').submit();">Ištrinti</a>
                                 </div>
                               </div>
-                            <form id="delete-form" action="{{ route('posts.destroy', $post->id) }} " method="POST">
+                            <form id="delete-form{{$post->id}}" action="{{ route('posts.destroy', $post->id) }} " method="POST">
                                 @method('delete')
                                 @csrf
                             </form>
