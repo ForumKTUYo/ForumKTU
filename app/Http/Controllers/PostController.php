@@ -78,4 +78,10 @@ class PostController extends Controller
 
         return back();
     }
+
+    public function search(){
+        $query = $_GET['query'];
+        $posts = Post::where('title', 'LIKE', "%$query%")->orWhere('content', 'LIKE', "%$query%")->get();
+        return view('posts.search')->with('posts', $posts);
+    }
 }

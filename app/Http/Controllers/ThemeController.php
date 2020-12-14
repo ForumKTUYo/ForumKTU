@@ -16,8 +16,11 @@ class ThemeController extends Controller
 
     public function show($id){
         $theme = Theme::findOrFail($id);
-        $posts = Post::where('theme_id', $id)->get();
-        // $posts = $theme->posts;
+        $posts = $theme->posts;
+        // $posts = Post::orderBy('name', 'desc')->get();
+        // $posts = Post::orderBy('name', 'asc')->get();
+        // $posts = Post::orderBy('view_count', 'desc')->get();
+        // $posts = Post::orderBy('view_count', 'asc')->get();
         $data = [
             'theme' => $theme,
             'posts' => $posts

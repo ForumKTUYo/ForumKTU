@@ -7,8 +7,8 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-          <label for="post_content">Komentaro turinys</label>
-          <input type="text" name="comment_content" id="" value="{{$comment->content}}">
+          <label for="comment_content">Komentaro turinys:</label>
+          <textarea  class="form-control" name="comment_content" rows="3">{{$comment->content}}</textarea>
         </div>
         <button type="submit" class="btn btn-success">Atnaujinti</button>
       </form>
