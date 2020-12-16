@@ -5,6 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <h1>Temos</h1>
+      <h6>Rikiavimas: <a href="{{ route('themes.index', 'creationtime_ascending') }}">sukūrimo laikas did.</a></h6>
       <h6><a href="{{ route('themes.create') }}">Sukurti temą</a></h6>
       <ul class="list-group list-group-flush">
 

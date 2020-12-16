@@ -22,7 +22,10 @@ class ThemeController extends Controller
     }
 
     public function index(){
-        $themes = Theme::orderby('created_at')->paginate(10);
+        $themes = Theme::orderby('created_at', 'desc')->paginate(10);
+        // if($method == 'creation_time_ascending'){
+        //     $themes = Theme::orderby('created_at', 'asc')->paginate(10);
+        // }
         return view('themes.index', ['themes' => $themes]);
     }
 
