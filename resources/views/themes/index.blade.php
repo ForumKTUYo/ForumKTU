@@ -5,7 +5,18 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <h1>Temos</h1>
-      <h6>Rikiavimas: <a href="{{ route('themes.index', 'creationtime_ascending') }}">sukūrimo laikas did.</a></h6>
+      <h6>Rikiuoti didėjimo tvarka: 
+        <a href="{{ route('themes.indexPostAsc') }}">[įrašai]</a> 
+        <a href="{{ route('themes.indexMonPostAsc') }}">[mėnesiniai įrašai]</a> 
+        <a href="{{ route('themes.indexViewAsc') }}">[peržiūros]</a>
+        <a href="{{ route('themes.indexMonViewAsc') }}">[mėnesinės peržiūros]</a> 
+      </h6>
+      <h6>Rikiuoti mažėjimo tvarka: 
+        <a href="{{ route('themes.index') }}">[įrašai]</a> 
+        <a href="{{ route('themes.indexMonPostDesc') }}">[mėnesiniai įrašai]</a> 
+        <a href="{{ route('themes.indexViewDesc') }}">[peržiūros]</a> 
+        <a href="{{ route('themes.indexMonViewDesc') }}">[mėnesinės peržiūros]</a> 
+      </h6>
       <h6><a href="{{ route('themes.create') }}">Sukurti temą</a></h6>
       <ul class="list-group list-group-flush">
 

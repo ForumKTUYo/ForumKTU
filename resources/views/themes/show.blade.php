@@ -6,6 +6,20 @@
         <div class="col-8">
         <h1>{{ $theme->name }}</h1>
         <p>{!! $theme->description !!}</p>
+        <h6>Rikiuoti didėjimo tvarka: 
+            <a href="{{ route('themes.showCreationAsc', $theme->id) }}">[sukūrimo data]</a> 
+            <a href="{{ route('themes.showComAsc', $theme->id) }}">[komentarai]</a> 
+            <a href="{{ route('themes.showMonComAsc', $theme->id) }}">[mėnesiniai komentarai]</a> 
+            <a href="{{ route('themes.showViewAsc', $theme->id) }}">[peržiūros]</a>
+            <a href="{{ route('themes.showMonViewAsc', $theme->id) }}">[mėnesinės peržiūros]</a> 
+          </h6>
+          <h6>Rikiuoti mažėjimo tvarka: 
+            <a href="{{ route('themes.show', $theme->id) }}">[sukūrimo data]</a> 
+            <a href="{{ route('themes.showComDesc', $theme->id) }}">[komentarai]</a> 
+            <a href="{{ route('themes.showMonComDesc', $theme->id) }}">[mėnesiniai komentarai]</a> 
+            <a href="{{ route('themes.showViewDesc', $theme->id) }}">[peržiūros]</a> 
+            <a href="{{ route('themes.showMonViewDesc', $theme->id) }}">[mėnesinės peržiūros]</a> 
+          </h6>
             <h6><a href="{{ route('posts.create') }}">Sukurti įrašą</a></h6>
             <ul class="list-group list-group-flush">
 
