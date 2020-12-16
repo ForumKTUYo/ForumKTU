@@ -13,7 +13,7 @@ class CreateForeignKeysForThemeUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('foreign_keys_for_theme_user', function (Blueprint $table) {
+        Schema::table('theme_user', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('theme_id')->references('id')->on('themes')->onDelete('cascade');
         });
