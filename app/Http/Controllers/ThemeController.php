@@ -9,6 +9,18 @@ use DB;
 
 class ThemeController extends Controller
 {
+    public function create(){
+        return view('themes.create');
+    }
+
+    public function edit($id){
+        $theme = Theme::findOrFail($id);
+        $data = [
+            'theme' => $theme,
+        ];
+        return view('themes.edit', $data);
+    }
+
     public function index(){
         $themes = Theme::orderby('created_at')->paginate(10);
         return view('themes.index', ['themes' => $themes]);
@@ -42,11 +54,19 @@ class ThemeController extends Controller
         return redirect('/');
     }
 
+    public function update($id){
+        $theme = Theme::find($id);
+        $theme->name = request('theme_name');
+        $theme->description = request('theme_description');
+
+        $theme->save();
+        return redirect('/')->with('msg', 'Tema sėkmingai atnaujinta.');
+    }
+
     public function store(){    
         $theme = new Theme();
-        $theme->name = request('name');
-        // Temporary 
-        $theme->description = '';
+        $theme->name = request('theme_name');
+        $theme->description = request('theme_description');
 
         $theme->save();
 

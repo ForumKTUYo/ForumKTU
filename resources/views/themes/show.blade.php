@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-8">
         <h1>{{ $theme->name }}</h1>
+        <p>{!! $theme->description !!}</p>
             <h6><a href="{{ route('posts.create') }}">Sukurti įrašą</a></h6>
             <ul class="list-group list-group-flush">
 

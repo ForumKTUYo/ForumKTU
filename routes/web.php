@@ -19,10 +19,13 @@ Route::get('/search', 'PostController@search')->name('posts.search');
 
 // THEMES
 Route::get('/', 'ThemeController@index')->name('themes.index');
+Route::get('/theme/create', 'ThemeController@create')->name('themes.create');
 Route::post('/', 'ThemeController@store')->name('themes.store');
 Route::get('/{id}', 'ThemeController@show')->name('themes.show');
+Route::get('/theme/edit/{id}', 'ThemeController@edit')->name('themes.edit');
 Route::put('/lock/{id}', 'ThemeController@lock')->name('themes.lock');
 Route::put('/unlock/{id}', 'ThemeController@unlock')->name('themes.unlock');
+Route::put('/theme/{id}', 'ThemeController@update')->name('themes.update');
 Route::delete('/theme/{id}', 'ThemeController@destroy')->name('themes.destroy');
 
 // POSTS

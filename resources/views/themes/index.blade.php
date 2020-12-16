@@ -5,18 +5,14 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <h1>Temos</h1>
-      <form class="form-inline" method="POST" action="{{ route('themes.store') }}">
-        @csrf
-        <div class="col-auto pl-0">
-          <label class="sr-only" for="new_theme">Nauja tema</label>
-          <input name="name" type="text" class="form-control mb-2" id="new_theme" placeholder="Nauja tema">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2">Kurti</button>
-      </form>
+      <h6><a href="{{ route('themes.create') }}">Sukurti temą</a></h6>
       <ul class="list-group list-group-flush">
 
         @foreach ($themes as $theme)
-
+        <form id="edit-form{{$theme->id}}" action="{{ route('themes.edit', $theme->id) }}" method="post">
+          @method('get')
+          @csrf
+        </form>
         <form id="delete-form{{$theme->id}}" action="{{ route('themes.destroy', $theme->id) }}" method="post">
           @method('delete')
           @csrf
@@ -49,7 +45,8 @@
                   ---
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Redaguoti</a>
+                  <a class="dropdown-item" onclick="event.preventDefault();
+                                  document.getElementById('edit-form{{$theme->id}}').submit();">Redaguoti {{$theme->id}}</a>
                   @if ($theme->locked == 1)
                   <a class="dropdown-item" onclick="event.preventDefault();
                                     document.getElementById('unlock-form{{$theme->id}}').submit();">Atrakinti {{$theme->id}}</a>
