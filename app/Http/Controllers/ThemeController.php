@@ -24,9 +24,9 @@ class ThemeController extends Controller
     }
 
     public function following($id_user){
-        $themes = $id_user->themes()->get();
-        dd($themes);
-        $themes = Theme::orderby('posts_count', 'desc')->paginate(10);
+        $user = User::findOrFail($id_user);
+        $themes = $user->followed_themes()->get();
+        // Pasikeisk i custom puslapi
         return view('themes.index', ['themes' => $themes]);
     }
 

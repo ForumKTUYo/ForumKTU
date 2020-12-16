@@ -47,7 +47,7 @@
               </h3>
             </div>
             <div class="col-1">
-              <a href="{{route('following.themes', $theme->id)}}">Sekti Temporary</a>
+              <a href="{{route('themes.follow', $theme->id)}}">Sekti Temporary</a>
               <button type="button" class="btn btn-success">Sekti</button>
             </div>
             <div class="col-2 ">

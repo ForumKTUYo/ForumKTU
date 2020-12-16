@@ -52,6 +52,6 @@ class User extends Authenticatable
     }
 
     public function followed_themes(){
-        return $this->belongsToMany('App\Themes');
+        return $this->belongsToMany('App\Theme');
     }
 }
