@@ -19,6 +19,7 @@ Route::get('/search', 'PostController@search')->name('posts.search');
 
 // THEMES
 Route::get('/', 'ThemeController@index')->name('themes.index');
+Route::get('/following_themes', 'ThemeController@follow')->name('following.themes');
 
 // Index sorting
 Route::get('/post_asc', 'ThemeController@indexPostAsc', 'var')->name('themes.indexPostAsc');

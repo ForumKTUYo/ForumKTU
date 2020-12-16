@@ -14,6 +14,14 @@ class ThemeController extends Controller
         return view('themes.create');
     }
 
+    public function follow($id){
+        $theme_user = Theme::where('user_id' = $id);
+        $ = [
+            'theme' => $theme,
+        ];
+        return view('themes.index', $themes);
+    }
+
     public function edit($id){
         $theme = Theme::findOrFail($id);
         $data = [
