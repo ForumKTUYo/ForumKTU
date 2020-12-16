@@ -58,7 +58,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('themes.following', Auth::user()->id) }}">
+                                    <a class="dropdown-item" href="{{ route('themes.following')}}">
                                         {{ __('Sekamos temos') }}
                                     </a>
 
