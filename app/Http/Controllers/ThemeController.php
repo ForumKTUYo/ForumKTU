@@ -23,6 +23,13 @@ class ThemeController extends Controller
         return back();
     }
 
+    public function following($id_user){
+        $themes = $id_user->themes()->get();
+        dd($themes);
+        $themes = Theme::orderby('posts_count', 'desc')->paginate(10);
+        return view('themes.index', ['themes' => $themes]);
+    }
+
     public function edit($id){
         $theme = Theme::findOrFail($id);
         $data = [
