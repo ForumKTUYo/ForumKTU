@@ -11,6 +11,6 @@ class Theme extends Model
     }
 
     public function followers(){
-        return $this->hasMany('App\User');
+        return $this->belongsToMany('App\User');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Theme;
 use App\Post;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use Carbon\Carbon;
 
@@ -18,7 +19,7 @@ class ThemeController extends Controller
     public function follow($id){
         $user = Auth::user();
         $theme = Theme::findOrFail($id);
-        $travel->users()->attach($user->id);
+        $theme->followers()->attach($user->id);
         return back();
     }
 
