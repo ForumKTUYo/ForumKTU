@@ -15,12 +15,11 @@ class ThemeController extends Controller
         return view('themes.create');
     }
 
-    public function follow(User $user){
-        $theme_user = Theme::where('user_id' == $user->id);
-        $themes = [
-            'theme' => $theme,
-        ];
-        return view('themes.index', $themes);
+    public function follow($id){
+        $user = Auth::user();
+        $theme = Theme::findOrFail($id);
+        $travel->users()->attach($user->id);
+        return back();
     }
 
     public function edit($id){
