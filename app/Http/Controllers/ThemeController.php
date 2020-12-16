@@ -27,7 +27,8 @@ class ThemeController extends Controller
         $user = User::findOrFail($id_user);
         $themes = $user->followed_themes()->get();
         // Pasikeisk i custom puslapi
-        return view('themes.index', ['themes' => $themes]);
+        //dd($themes);
+        return view('themes.following', ['themes' => $themes]);
     }
 
     public function edit($id){
