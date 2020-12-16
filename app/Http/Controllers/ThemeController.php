@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Theme;
 use App\Post;
+use App\User;
 use DB;
 use Carbon\Carbon;
 
@@ -14,9 +15,9 @@ class ThemeController extends Controller
         return view('themes.create');
     }
 
-    public function follow($id){
-        $theme_user = Theme::where('user_id' = $id);
-        $ = [
+    public function follow(User $user){
+        $theme_user = Theme::where('user_id' == $user->id);
+        $themes = [
             'theme' => $theme,
         ];
         return view('themes.index', $themes);

@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function warnings(){
         return $this->belongsToMany('App\Warning');
     }
+
+    public function followed_themes(){
+        return $this->belongsToMany('App\Themes');
+    }
 }
