@@ -20,7 +20,7 @@ Route::get('/search', 'PostController@search')->name('posts.search');
 // THEMES
 Route::get('/', 'ThemeController@index')->name('themes.index');
 Route::get('/follow/{id}', 'ThemeController@follow')->name('themes.follow');
-Route::get('/following/{id}', 'ThemeController@following')->name('themes.following');
+Route::get('/following', 'ThemeController@following')->name('themes.following');
 
 // Index sorting
 Route::get('/post_asc', 'ThemeController@indexPostAsc', 'var')->name('themes.indexPostAsc');

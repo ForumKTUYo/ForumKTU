@@ -23,8 +23,8 @@ class ThemeController extends Controller
         return back();
     }
 
-    public function following($id_user){
-        $user = User::findOrFail($id_user);
+    public function following(){
+        $user = Auth::user();
         $themes = $user->followed_themes()->get();
         // Pasikeisk i custom puslapi
         //dd($themes);
