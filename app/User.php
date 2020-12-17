@@ -55,11 +55,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Theme');
     }
 
-    public function followers(){
-        return $this->belongsToMany('App\User');
+    public function following() {
+        return $this->belongsToMany(User::class,null,'user_id','following_id')->withTimestamps();
     }
-
-    public function following(){
-        return $this->belongsToMany('App\User');
+    
+    public function followers() {
+        return $this->belongsToMany(User::class,null,'following_id','user_id')->withTimestamps();
     }
 }
