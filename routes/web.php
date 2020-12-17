@@ -74,5 +74,5 @@ Route::get('/comment/{id}/edit', 'CommentController@edit')->name('comments.edit'
 Route::put('/comment/{id}', 'CommentController@update')->name('comments.update');
 
 // WARNINGS
-Route::get('/profile/{id}/create', 'WarningController@create')->name('warnings.create');
-Route::post('/profile/{id}/create', 'WarningController@store')->name('warnings.store');
+Route::get('/profile/{id}/warn', 'WarningController@create')->name('warnings.create');
+Route::post('/profile/{id}/warn', 'WarningController@store')->name('warnings.store');

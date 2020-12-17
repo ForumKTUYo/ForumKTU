@@ -12,8 +12,9 @@ use Carbon\Carbon;
 
 class WarningController extends Controller
 {
-    public function create(){
-        return view('warnings.create');
+    public function create($id){
+        $user = User::findOrFail($id);
+        return view('warnings.create', ['user' => $user]);
     }
 
     public function edit($id){
@@ -24,11 +25,14 @@ class WarningController extends Controller
         return view('warnings.edit', $data);
     }
 
-    public function store(){    
+    public function store($id){    
         $warning = new Warning();
         $warning->content = request('warning_content');
-
         $warning->save();
+
+        $user = User::findOrFail($id);
+        $warning->users()->attach($user->id);
+
         return back()->with('msg', 'Įspėjimas sėkmingai sukurtas.');
     }
 
