@@ -39,6 +39,65 @@
         </form>
 
 
+        <!-- Modal for theme delete -->
+        <div class="modal fade" id="deleteModal{{$theme->id}}" tabindex="-1" aria-labelledby="deleteModal{{$theme->id}}" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Temos ištrynimas</h5>
+              </div>
+              <div class="modal-body">
+                Ar tikrai norite ištrinti temą {{ $theme->name }}?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="event.preventDefault();
+                document.getElementById('delete-form{{$theme->id}}').submit();">Taip</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ne</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Modal for theme lock -->
+        <div class="modal fade" id="lockModal{{$theme->id}}" tabindex="-1" aria-labelledby="lockModal{{$theme->id}}" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Temos užrakinimas</h5>
+              </div>
+              <div class="modal-body">
+                Ar tikrai norite užrakinti temą {{ $theme->name }}?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="event.preventDefault();
+                document.getElementById('lock-form{{$theme->id}}').submit();">Taip</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ne</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal for theme unlock -->
+        <div class="modal fade" id="unlockModal{{$theme->id}}" tabindex="-1" aria-labelledby="unlockModal{{$theme->id}}" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Temos atrakinimas</h5>
+              </div>
+              <div class="modal-body">
+                Ar tikrai norite atrakinti temą {{ $theme->name }}?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="event.preventDefault();
+                document.getElementById('unlock-form{{$theme->id}}').submit();">Taip</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ne</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <li class="list-group-item">
           <div class="row justify-content-between">
             <div class="col-8">
@@ -60,13 +119,11 @@
                   <a class="dropdown-item" onclick="event.preventDefault();
                                   document.getElementById('edit-form{{$theme->id}}').submit();">Redaguoti</a>
                   @if ($theme->locked == 1)
-                  <a class="dropdown-item" onclick="event.preventDefault();
-                                    document.getElementById('unlock-form{{$theme->id}}').submit();">Atrakinti</a>
+                  <a class="dropdown-item" href="#unlockModal{{$theme->id}}" data-toggle="modal" data-bs-target="#unlockModal{{$theme->id}}">Atrakinti</a>
                   @else
-                  <a class="dropdown-item" onclick="event.preventDefault();
-                                    document.getElementById('lock-form{{$theme->id}}').submit();">Užrakinti</a>
+                  <a class="dropdown-item" href="#lockModal{{$theme->id}}" data-toggle="modal" data-bs-target="#lockModal{{$theme->id}}">Užrakinti</a>
                   @endif
-                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal">Ištrinti</a>
+                  <a class="dropdown-item" href="#deleteModal{{$theme->id}}" data-toggle="modal" data-bs-target="#deleteModal{{$theme->id}}">Ištrinti</a>
                 </div>
               </div>
             </div>
@@ -77,25 +134,6 @@
           </div>
         </li>
 
-        <!-- Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="deleteModal">Temos ištrynimas</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Ar tikrai norite ištrinti temą {{ $theme->title }}?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
-                <button type="button" class="btn btn-primary" onclick="event.preventDefault();
-                document.getElementById('delete-form{{$theme->id}}').submit();">Taip</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
 
 
