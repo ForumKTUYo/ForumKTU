@@ -11,6 +11,28 @@
             <h4>Komentarai: </h4>
             <ul class="list-group list-group-flush">
                 @foreach ($comments as $comment)
+
+                <!-- Modal for comment delete -->
+                <div class="modal fade" id="deleteModal{{$comment->id}}" tabindex="-1"
+                    aria-labelledby="deleteModal{{$comment->id}}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Komentaro ištrynimas</h5>
+                            </div>
+                            <div class="modal-body">
+                                Ar tikrai norite ištrinti šį komentarą?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" onclick="event.preventDefault();
+                                document.getElementById('delete-form{{$comment->id}}').submit();">Taip</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Ne</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <li class="list-group-item" id="comment-{{$comment->id}}">
                     <div class="row">
                         <div class="col-sm-10">
@@ -31,11 +53,9 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" id="edit-comment" href="{{ route('comments.edit', $comment->id) }}">Redaguoti</a>
-                                    <a class="dropdown-item" onclick="event.preventDefault();
-                                document.getElementById('delete-form{{$comment->id}}').submit();">Ištrinti</a>
+                                    <a class="dropdown-item" href="#deleteModal{{$comment->id}}" data-toggle="modal" data-bs-target="#deleteModal{{$comment->id}}">Ištrinti</a>
                                 </div>
                             </div>
-
 
                             <form id="delete-form{{$comment->id}}" method="POST"
                                 action="{{ route('comments.destroy', $comment->id) }}">
