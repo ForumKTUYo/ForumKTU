@@ -61,7 +61,12 @@
                                     <a class="dropdown-item" href="{{ route('themes.following')}}">
                                         {{ __('Sekamos temos') }}
                                     </a>
-
+                                    <a class="dropdown-item" href="{{ route('users.following')}}">
+                                        {{ __('Sekami žmonės') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('users.following')}}">
+                                        {{ __('Profilis') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

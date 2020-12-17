@@ -13,18 +13,22 @@ class UserController extends Controller
         return view('users.show', ['user' => $user]);
     }
 
+    public function id(){
+
+    }
+
     public function follow($id){
         $user = Auth::user();
-        $followed_user = User::findOrFail($id);
-        $followed_user->followers()->attach($user->id);
+        $usera = User::findOrFail($id);
+        $usera->following()->attach($user->id);
         return back();
     }
 
     public function following(){
         $user = Auth::user();
-        $user = $user->following()->get();
+        $users = $user->following()->get();
         // Pasikeisk i custom puslapi
-        //dd($user);
-        return view('users.following', ['themes' => $user]);
+        dd($user);
+        return view('users.following', ['users' => $users]);
     }
 }
