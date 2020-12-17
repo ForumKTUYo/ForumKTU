@@ -17,7 +17,7 @@ class CreateUserUserTable extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('following_user_id')->unsigned();
+            $table->bigInteger('following_id')->unsigned();
         });
     }
 

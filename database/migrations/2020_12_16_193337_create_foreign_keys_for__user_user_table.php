@@ -15,7 +15,7 @@ class CreateForeignKeysForUserUserTable extends Migration
     {
         Schema::table('user_user', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('following_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('following_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -28,7 +28,7 @@ class CreateForeignKeysForUserUserTable extends Migration
     {
         Schema::table('user_user', function (Blueprint $table) {
             $table->dropForeign('user_user_user_id_foreign');
-            $table->dropForeign('user_user_following_user_id_foreign');
+            $table->dropForeign('user_user_following_id_foreign');
         });
     }
 }
