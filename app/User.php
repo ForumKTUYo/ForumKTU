@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nickname', 'name', 'surname', 'birthday', 'email', 'password', 'post_count', 'color', 'role', 
     ];
 
     /**
@@ -61,5 +61,12 @@ class User extends Authenticatable
     
     public function followers() {
         return $this->belongsToMany(User::class,null,'following_id','user_id')->withTimestamps();
+    }
+
+    public function hasRole($role){
+        if($this->role == $role){
+            return true;
+        }
+        return false;
     }
 }
