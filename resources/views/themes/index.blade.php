@@ -58,15 +58,15 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" onclick="event.preventDefault();
-                                  document.getElementById('edit-form{{$theme->id}}').submit();">Redaguoti {{$theme->id}}</a>
+                                  document.getElementById('edit-form{{$theme->id}}').submit();">Redaguoti</a>
                   @if ($theme->locked == 1)
                   <a class="dropdown-item" onclick="event.preventDefault();
-                                    document.getElementById('unlock-form{{$theme->id}}').submit();">Atrakinti {{$theme->id}}</a>
+                                    document.getElementById('unlock-form{{$theme->id}}').submit();">Atrakinti</a>
                   @else
                   <a class="dropdown-item" onclick="event.preventDefault();
-                                    document.getElementById('lock-form{{$theme->id}}').submit();">Užrakinti {{$theme->id}}</a>
+                                    document.getElementById('lock-form{{$theme->id}}').submit();">Užrakinti</a>
                   @endif
-                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal">Ištrinti {{$theme->id}}</a>
+                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal">Ištrinti</a>
                 </div>
               </div>
             </div>

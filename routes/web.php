@@ -72,3 +72,7 @@ Route::post('/comment/{id}', 'CommentController@store')->name('comments.store');
 Route::delete('/comment/{id}', 'CommentController@destroy')->name('comments.destroy');
 Route::get('/comment/{id}/edit', 'CommentController@edit')->name('comments.edit');
 Route::put('/comment/{id}', 'CommentController@update')->name('comments.update');
+
+// WARNINGS
+Route::get('/profile/{id}/create', 'WarningController@create')->name('warnings.create');
+Route::post('/profile/{id}/create', 'WarningController@store')->name('warnings.store');
