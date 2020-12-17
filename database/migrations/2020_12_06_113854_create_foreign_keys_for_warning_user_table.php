@@ -14,8 +14,8 @@ class CreateForeignKeysForWarningUserTable extends Migration
     public function up()
     {
         Schema::table('warning_user', function (Blueprint $table) {
-            $table->foreign('sender_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('receiver_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('warning_id')->references('id')->on('warnings')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -27,8 +27,8 @@ class CreateForeignKeysForWarningUserTable extends Migration
     public function down()
     {
         Schema::table('warning_user', function (Blueprint $table) {
-            $table->dropForeign('warning_user_sender_id_foreign');
-            $table->dropForeign('warning_user_receiver_id_foreign');
+            $table->dropForeign('warning_user_warning_id_foreign');
+            $table->dropForeign('warning_user_user_id_foreign');
         });
     }
 }

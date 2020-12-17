@@ -16,8 +16,8 @@ class CreateWarningUserTable extends Migration
         Schema::create('warning_user', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('sender_id')->unsigned();
-            $table->bigInteger('receiver_id')->unsigned();
+            $table->bigInteger('warning_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 
