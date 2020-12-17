@@ -28,7 +28,6 @@ class UserController extends Controller
         $user = Auth::user();
         $users = $user->following()->get();
         // Pasikeisk i custom puslapi
-        dd($user);
         return view('users.following', ['users' => $users]);
     }
 }

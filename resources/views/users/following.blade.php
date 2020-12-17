@@ -8,22 +8,7 @@
       <ul class="list-group list-group-flush">
 
         @foreach ($users as $user)
-        <form id="edit-form{{$user->id}}" action="{{ route('users.edit', $user->id) }}" method="post">
-          @method('get')
-          @csrf
-        </form>
-        <form id="delete-form{{$user->id}}" action="{{ route('users.destroy', $user->id) }}" method="post">
-          @method('delete')
-          @csrf
-        </form>
-        <form id="lock-form{{$user->id}}" action="{{ route('users.lock', $user->id) }}" method="post">
-          @method('put')
-          @csrf
-        </form>
-        <form id="unlock-form{{$user->id}}" action="{{ route('users.unlock', $user->id) }}" method="post">
-          @method('put')
-          @csrf
-        </form>
+
 
 
         <li class="list-group-item">
