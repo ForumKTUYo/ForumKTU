@@ -17,9 +17,9 @@
         <a href="{{ route('themes.indexViewDesc') }}">[peržiūros]</a> 
         <a href="{{ route('themes.indexMonViewDesc') }}">[mėnesinės peržiūros]</a> 
       </h6>
-
       @can('admin')
       <h6><a href="{{ route('themes.create') }}">Sukurti temą</a></h6>
+      @endcan
       <ul class="list-group list-group-flush">
         @foreach ($themes as $theme)
         <form id="edit-form{{$theme->id}}" action="{{ route('themes.edit', $theme->id) }}" method="post">
@@ -106,6 +106,7 @@
                 <a href="{{ route('themes.show', $theme->id) }}">{{$theme->name}}</a>
               </h3>
             </div>
+            @can('admin-user')
             <div class="col-1">
               @if(Auth::check())
                 @if ($exists = $theme->followers->contains(Auth::user()->id))
@@ -115,8 +116,10 @@
                 @endif
               @endif
             </div>
+            @endcan
+            @can('admin')
             <div class="col-2 ">
-
+    
               <div class="dropdown">
                 <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -134,6 +137,7 @@
                 </div>
               </div>
             </div>
+            @endcan
 
           </div>
           <div class="row pl-3">
@@ -148,7 +152,6 @@
         @endforeach
         {{$themes->links()}}
       </ul>
-      @endcan
     </div>
   </div>
 </div>
