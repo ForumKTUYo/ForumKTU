@@ -47,8 +47,7 @@
               </h3>
             </div>
             <div class="col-1">
-              <a href="{{route('themes.follow', $theme->id)}}">Sekti Temporary</a>
-              <button type="button" class="btn btn-success">Sekti</button>
+              <a href="{{route('themes.follow', $theme->id)}}"><button type="button" class="btn btn-success">Sekti</button></a>
             </div>
             <div class="col-2 ">
 
@@ -67,14 +66,40 @@
                   <a class="dropdown-item" onclick="event.preventDefault();
                                     document.getElementById('lock-form{{$theme->id}}').submit();">Užrakinti {{$theme->id}}</a>
                   @endif
-                  <a class="dropdown-item" onclick="event.preventDefault();
-                                  document.getElementById('delete-form{{$theme->id}}').submit();">Ištrinti {{$theme->id}}</a>
+                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal">Ištrinti {{$theme->id}}</a>
                 </div>
               </div>
             </div>
 
           </div>
+          <div class="row pl-3">
+            <p>{!! $theme->description !!}</p>
+          </div>
         </li>
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModal">Temos ištrynimas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Ar tikrai norite ištrinti temą {{ $theme->title }}?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+                <button type="button" class="btn btn-primary" onclick="event.preventDefault();
+                document.getElementById('delete-form{{$theme->id}}').submit();">Taip</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
         @endforeach
         {{$themes->links()}}
       </ul>
