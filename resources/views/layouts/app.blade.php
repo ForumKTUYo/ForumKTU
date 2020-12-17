@@ -60,20 +60,22 @@
                                     <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id)}}">
                                         {{ __('Profilis') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('themes.following')}}">
-                                        {{ __('Sekamos temos') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('users.following')}}">
-                                        {{ __('Sekami žmonės') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                    @can('admin-user')                                        
+                                        <a class="dropdown-item" href="{{ route('themes.following')}}">
+                                            {{ __('Sekamos temos') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('users.following')}}">
+                                            {{ __('Sekami žmonės') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Atsijungti') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    @endcan
                                 </div>
                             </li>
                         @endguest

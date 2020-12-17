@@ -46,6 +46,7 @@
 
                         </div>
                         <div class="col-sm-2">
+                            @can('admin-user')
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,6 +57,7 @@
                                     <a class="dropdown-item" href="#deleteModal{{$comment->id}}" data-toggle="modal" data-bs-target="#deleteModal{{$comment->id}}">Ištrinti</a>
                                 </div>
                             </div>
+                            @endcan
 
                             <form id="delete-form{{$comment->id}}" method="POST"
                                 action="{{ route('comments.destroy', $comment->id) }}">
@@ -67,14 +69,16 @@
                 </li>
                 @endforeach
             </ul>
-            <form method="POST" action="{{ route('comments.store', $post->id) }}">
-                @csrf
-                <div class="form-group">
-                    <label for="comment_content">Komentaras: </label>
-                    <textarea class="form-control" name="comment_content" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Skelbti</button>
-            </form>
+            @can('admin-user')
+                <form method="POST" action="{{ route('comments.store', $post->id) }}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="comment_content">Komentaras: </label>
+                        <textarea class="form-control" name="comment_content" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Skelbti</button>
+                </form>
+            @endcan
         </div>
     </div>
 </div>

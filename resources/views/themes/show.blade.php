@@ -20,7 +20,9 @@
                 <a href="{{ route('themes.showViewDesc', $theme->id) }}">[peržiūros]</a>
                 <a href="{{ route('themes.showMonViewDesc', $theme->id) }}">[mėnesinės peržiūros]</a>
             </h6>
+            @auth
             <h6><a href="{{ route('posts.create') }}">Sukurti įrašą</a></h6>
+            @endauth
             <ul class="list-group list-group-flush">
 
                 @foreach ($posts as $post)
@@ -64,6 +66,7 @@
                             </div>
                         </div>
                         <div class="col-2">
+                            @auth
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +77,7 @@
                                     <a class="dropdown-item" href="#deleteModal{{$post->id}}" data-toggle="modal" data-bs-target="#deleteModal{{$post->id}}">Ištrinti</a>
                                 </div>
                             </div>
-
+                            @endauth
                         </div>
                     </div>
                 </li>
