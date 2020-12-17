@@ -10,7 +10,7 @@
           @csrf
                 <div class="form-group">
                   <label for="theme_name">Temos pavadinimas</label>
-                  <input type="text" class="form-control" name="theme_name" placeholder="Tema">
+                  <input type="text" class="form-control" name="theme_name" placeholder="Tema" required>
                 </div>
                 <div class="form-group">
                   <label for="theme_description">Temos aprašymas</label>

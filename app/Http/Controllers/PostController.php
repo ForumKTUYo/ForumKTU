@@ -6,6 +6,7 @@ use App\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -33,7 +34,7 @@ class PostController extends Controller
         return view('posts.show', $data);
     }
 
-    public function store(){    
+    public function store(Request $request){      
         $post = new Post();
         $post->title = request('post_name');
         $post->theme_id = request('selected_theme');
@@ -59,7 +60,8 @@ class PostController extends Controller
         return view('posts.edit', $data);
     }
 
-    public function update($id){
+    public function update(Request $request, $id){
+
         $post = Post::find($id);
         $post->title = request('post_name');
         $post->theme_id = request('selected_theme');
