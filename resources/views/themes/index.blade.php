@@ -17,9 +17,10 @@
         <a href="{{ route('themes.indexViewDesc') }}">[peržiūros]</a> 
         <a href="{{ route('themes.indexMonViewDesc') }}">[mėnesinės peržiūros]</a> 
       </h6>
+
+      @can('admin')
       <h6><a href="{{ route('themes.create') }}">Sukurti temą</a></h6>
       <ul class="list-group list-group-flush">
-
         @foreach ($themes as $theme)
         <form id="edit-form{{$theme->id}}" action="{{ route('themes.edit', $theme->id) }}" method="post">
           @method('get')
@@ -147,6 +148,7 @@
         @endforeach
         {{$themes->links()}}
       </ul>
+      @endcan
     </div>
   </div>
 </div>
