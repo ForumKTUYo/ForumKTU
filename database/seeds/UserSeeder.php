@@ -23,5 +23,16 @@ class UserSeeder extends Seeder
             'post_count' => 0,
             'role' => 'admin'
         ]);
+
+        User::create([
+            'nickname' => 'tester',
+            'name' => 'sekejas',
+            'surname' => 'pasekejas',
+            'birthday' => '2020-9-11',
+            'email' => 'follower@follower',
+            'password' => Hash::make('password'),
+            'post_count' => 0,
+            'role' => 'user'
+        ]);
     }
 }
