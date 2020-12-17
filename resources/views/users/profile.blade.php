@@ -6,7 +6,7 @@
         <div class="col-8">
            <h1>{{$user->name}}</h1>
            <h6>Registracijos data: {{$user->created_at}}</h6>
-           <h6>Sekamų temų kiekis: implement pls</h6>
+           <h6>Sekamų temų kiekis: {{$theme->count()}}</h6>
         </div>
     </div>
 </div>

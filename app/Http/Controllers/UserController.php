@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Theme;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function show($id){
         $user = User::findOrFail($id);
-        return view('users.show', ['user' => $user]);
+        $themes = $user->followed_themes()->get();
+        return view('users.show', ['user' => $user], ['theme' => $themes]);
     }
 
     public function profile(){
         $user = Auth::user();
-        return view('users.show', ['user' => $user]);
+        $themes = $user->followed_themes()->get();
+        return view('users.profile', ['user' => $user], ['theme' => $themes]);
     }
 
     public function follow($id){
