@@ -28,7 +28,7 @@
                     <div class="row justify-content-between">
                         <div class="col-8">
                             <div class="row">
-                                <a href="{{ route('users.show', 1) }}">{{ $post->user->name }}</a>
+                                <a href="{{ route('users.show', $post->user_id) }}">{{ $post->user->name }}</a>
                             </div>
                             <div class="row">
                                 <h5>

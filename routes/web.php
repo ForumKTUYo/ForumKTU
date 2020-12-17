@@ -63,7 +63,7 @@ Route::delete('/post/{id}', 'PostController@destroy')->name('posts.destroy');
 
 // USERS
 Route::get('/profile/{id}', 'UserController@show')->name('users.show');
-
+Route::get('/profile/follow/{id}', 'UserController@follow')->name('users.follow');
 // COMMENTS
 Route::post('/comment/{id}', 'CommentController@store')->name('comments.store');
 Route::delete('/comment/{id}', 'CommentController@destroy')->name('comments.destroy');

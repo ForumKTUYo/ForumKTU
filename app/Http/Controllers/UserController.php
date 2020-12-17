@@ -15,8 +15,8 @@ class UserController extends Controller
 
     public function follow($id){
         $user = Auth::user();
-        $user = User::findOrFail($id);
-        $user->following()->attach($user->id);
+        $followed_user = User::findOrFail($id);
+        $followed_user->followers()->attach($user->id);
         return back();
     }
 
