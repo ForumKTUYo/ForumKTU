@@ -64,7 +64,7 @@
                                     <a class="dropdown-item" href="{{ route('users.following')}}">
                                         {{ __('Sekami žmonės') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('users.following')}}">
+                                    <a class="dropdown-item" href="{{ route('users.profile')}}">
                                         {{ __('Profilis') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -8,9 +8,6 @@
       <ul class="list-group list-group-flush">
 
         @foreach ($users as $user)
-
-
-
         <li class="list-group-item">
           <div class="row justify-content-between">
             <div class="col-8">

@@ -13,14 +13,15 @@ class UserController extends Controller
         return view('users.show', ['user' => $user]);
     }
 
-    public function id(){
-
+    public function profile(){
+        $user = Auth::user();
+        return view('users.show', ['user' => $user]);
     }
 
     public function follow($id){
         $user = Auth::user();
         $usera = User::findOrFail($id);
-        $usera->following()->attach($user->id);
+        $usera->following()->attach($user->$id);
         return back();
     }
 

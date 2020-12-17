@@ -63,7 +63,7 @@ Route::delete('/post/{id}', 'PostController@destroy')->name('posts.destroy');
 
 // USERS
 Route::get('/profile/{id}', 'UserController@show')->name('users.show');
-//Route::get('/profile', 'UserController@show')->name('users.profile');
+Route::get('/user/profile', 'UserController@profile')->name('users.profile');
 Route::get('/user/follow/{id}', 'UserController@follow')->name('users.follow');
 Route::get('/user/following', 'UserController@following')->name('users.following');
 
