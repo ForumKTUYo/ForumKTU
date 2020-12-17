@@ -23,6 +23,13 @@ class ThemeController extends Controller
         return back();
     }
 
+    public function unfollow($id){
+        $user = Auth::user();
+        $theme = Theme::findOrFail($id);
+        $theme->followers()->detach($user->id);
+        return back();
+    }
+
     public function following(){
         $user = Auth::user();
         $themes = $user->followed_themes()->get();

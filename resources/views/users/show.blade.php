@@ -7,7 +7,11 @@
            <h1>{{$user->name}}</h1>
            <h6>Registracijos data: {{$user->created_at}}</h6>
            <h6>Sekamų temų kiekis: {{$theme->count()}}</h6>
+           @if ($exists = $user->followers->contains(Auth::user()->id))
+           <a href="{{route('users.unfollow', $user->id)}}"><button type="button" class="btn btn-danger">Atsekti</button></a>
+           @else
            <a href="{{route('users.follow', $user->id)}}"><button type="button" class="btn btn-success">Sekti</button></a>
+           @endif
            
            <a href="{{route('warnings.create', $user->id)}}"><button type="button" class="btn btn-danger">Įspėti</button></a>
         </div>

@@ -106,7 +106,11 @@
               </h3>
             </div>
             <div class="col-1">
+              @if ($exists = $theme->followers->contains(Auth::user()->id))
+              <a href="{{route('themes.unfollow', $theme->id)}}"><button type="button" class="btn btn-danger">Atsekti</button></a>
+              @else
               <a href="{{route('themes.follow', $theme->id)}}"><button type="button" class="btn btn-success">Sekti</button></a>
+              @endif
             </div>
             <div class="col-2 ">
 

@@ -20,6 +20,7 @@ Route::get('/search', 'PostController@search')->name('posts.search');
 // THEMES
 Route::get('/', 'ThemeController@index')->name('themes.index');
 Route::get('/follow/{id}', 'ThemeController@follow')->name('themes.follow');
+Route::get('/unfollow/{id}', 'ThemeController@unfollow')->name('themes.unfollow');
 Route::get('/following', 'ThemeController@following')->name('themes.following');
 
 // Index sorting
@@ -65,6 +66,7 @@ Route::delete('/post/{id}', 'PostController@destroy')->name('posts.destroy');
 Route::get('/profile/{id}', 'UserController@show')->name('users.show');
 Route::get('/user/profile', 'UserController@profile')->name('users.profile');
 Route::get('/user/follow/{id}', 'UserController@follow')->name('users.follow');
+Route::get('/user/unfollow/{id}', 'UserController@unfollow')->name('users.unfollow');
 Route::get('/user/following', 'UserController@following')->name('users.following');
 
 // COMMENTS

@@ -28,6 +28,13 @@ class UserController extends Controller
         return back();
     }
 
+    public function unfollow($id){
+        $user = Auth::user();
+        $user_followed = User::findOrFail($id);
+        $user->following()->detach($user_followed->id);
+        return back();
+    }
+
     public function following(){
         $user = Auth::user();
         $users = $user->following()->get();
